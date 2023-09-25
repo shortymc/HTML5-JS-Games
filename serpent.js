@@ -2,6 +2,8 @@
 	Code by Gaetano Bonofiglio
 	https://github.com/Kidel/
 	MIT License
+	adapte par shorty @ tradezone.fr
+	https://www.tradezone.fr 
 */
 
 var canvas = document.getElementById("snakeCanvas");
@@ -89,15 +91,51 @@ var snake = {
         if (controls.rightPressed && !(this.using == "left")) {
             this.command = "right";
 		}
-        else if (controls.leftPressed && !(this.using == "right")) {
-            this.command = "left";
+		
+		else if (controls.rightPressed && !(this.using == "down")) {
+            this.command = "down";
 		}
-        else if (controls.upPressed && !(this.using == "down")) {
+
+		else if (controls.rightPressed && !(this.using == "up")) {
             this.command = "up";
 		}
-        else if (controls.downPressed && !(this.using == "up")) {
+		
+        if (controls.leftPressed && !(this.using == "right")) {
+            this.command = "left";
+		}
+		
+		else if (controls.leftPressed && !(this.using == "down")) {
+            this.command = "down";
+		}
+
+		else if (controls.leftPressed && !(this.using == "up")) {
+            this.command = "up";
+		}		
+		
+        if (controls.upPressed && !(this.using == "down")) {
+            this.command = "up";
+		}
+		
+		else if (controls.upPressed && !(this.using == "left")) {
+            this.command = "left"
+		}
+
+		else if (controls.upPressed && !(this.using == "right")) {
+            this.command = "right";
+		}		
+		
+        if (controls.downPressed && !(this.using == "up")) {
             this.command = "down";
         }
+		
+		else if (controls.downPressed && !(this.using == "left")) {
+            this.command = "left";
+		}
+
+		else if (controls.downPressed && !(this.using == "right")) {
+            this.command = "right";
+		}
+		
 	},
 	isOutOfCanvasLeft: function (canvas) {
         return this.bricks[0].position.x > canvas.width - this.bricks[0].width + canvas.position.x;
@@ -195,16 +233,16 @@ var game = {
     },
     gameOver: function () {
         if (!this.alertShown) {
-            writeText("GAME OVER");
-            writeSubText("click to reload");
+            writeText("PERDU !");
+            writeSubText("cliquez pour recommencer");
             playSound('gameover');
         }
         this.alertShown = true;
     },
     gameWon: function () {
         if (!this.alertShown) {
-            writeText("YOU WON");
-            writeSubText("click to reload");
+            writeText("VICTOIRE !!");
+            writeSubText("cliquez pour recommencer");
             playSound('win');
         }
         this.alertShown = true;
