@@ -79,3 +79,63 @@ function keyUpHandler(e) {
         controls.downPressed = false;
     }
 }
+
+//Fonction appeler lors de l'appui d'une touche
+$(document).keydown(function(e){
+    nom = e.keyCode;
+    console.log(nom);
+    if((nom == 38)||(nom == 90)||(nom == 87)){
+        upPacman();
+        $("#controls a#btnUP").addClass("press-upArrow");
+        controls.upPressed = true;         		
+    }
+    if((nom == 40)||(nom == 83)){
+        downPacman();
+        $("#controls a#btnDOWN").addClass("press-downArrow");
+            this.command = "down";
+        controls.downPressed = true;  			
+    }
+    if((nom == 37)||(nom == 81)||(nom == 65)){
+        leftPacman();
+        $("#controls a#btnLEFT").addClass("press-leftArrow");
+            this.command = "left";
+        controls.leftPressed = true;  			
+    }
+    if((nom == 39)||(nom == 68)){
+        rightPacman();
+        $("#controls a#btnRIGHT").addClass("press-rightArrow");
+            this.command = "right";
+        controls.rightPressed = true;  			
+    }
+    if(nom == 82){
+        resolveMaze();
+        $("#bigRedButton").addClass("press-redButton");
+    }
+});
+
+//Fonction appeler lors du relachement d'une touche
+$(document).keyup(function(e){
+    nom = e.keyCode;
+    if((nom == 38)||(nom == 90)||(nom == 87)){
+	    $("#controls a#btnUP").removeClass("press-upArrow");
+        controls.upPressed = false;		
+    }
+    if((nom == 40)||(nom == 83)){
+        $("#controls a#btnDOWN").removeClass("press-downArrow");
+        controls.downPressed = false;		 
+ }
+    if((nom == 37)||(nom == 81)){
+        $("#controls a#btnLEFT").removeClass("press-leftArrow");
+        controls.leftPressed = false;				
+    }
+    if((nom == 39)||(nom == 68)){
+        $("#controls a#btnRIGHT").removeClass("press-rightArrow");
+        controls.rightPressed = false;		
+    }
+    if(nom == 82){
+        $("#bigRedButton").removeClass("press-redButton");
+    }
+    if(nom == 71){
+        $("aside#control form button").removeClass("press-genButton");
+    }
+});
