@@ -1,8 +1,8 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
-    <title>Snake</title>
+    <title>Snake - Le jeu du serpent</title>
     <style>
         #snakeCanvas {
             padding: 0;
@@ -10,13 +10,95 @@
             display: block;
             margin: 0 auto;
         }
+
+#controls a{
+    display:block;
+    width:50px;
+    height:50px;
+    float:left;
+    background-image:url(arrows.png);
+    background-repeat:no-repeat;
+}
+#controls a#btnUP{
+    background-position: -54px 1px;
+    height: 40px;
+    width: 38px;
+}
+#controls a#btnUP:hover{
+    background-position: -54px -111px;
+}
+#controls a#btnUP:active{
+    background-position: -54px -220px;
+}
+
+#controls a#btnRIGHT{
+    background-position: -95px -29px;
+    height: 42px;
+    width: 50px;
+    margin-top: 29px;
+    margin-left: -3px;
+}
+#controls a#btnRIGHT:hover{
+    background-position: -95px -141px;
+}
+#controls a#btnRIGHT:active{
+    background-position: -95px -250px;
+}
+#controls a#btnDOWN{
+    background-position: -51px -56px;
+    height: 53px;
+    width: 43px;
+    margin-left: -41px;
+    margin-top: 59px;
+}
+#controls a#btnDOWN:hover{
+    background-position: -51px -168px;
+}
+#controls a#btnDOWN:active{
+    background-position: -51px -277px;
+}
+#controls a#btnLEFT{
+    background-position: -4px -29px;
+    height: 41px;
+    width: 47px;
+    margin-top: 29px;
+}
+#controls a#btnLEFT:hover{
+    background-position: -4px -141px;
+}
+#controls a#btnLEFT:active{
+    background-position: -4px -250px;
+}
+#controls{
+    margin: 32px auto;
+    width: 135px;
+}	
+
+	
     </style>
 </head>
 <body>
-
+	<a href="https://www.tradezone.fr">Accueil</a>
+<br>	
     <canvas id="snakeCanvas" width="480" height="320" onclick="reloadGame()"></canvas>
     <script src="common.js"></script>
     <script src="serpent.js"></script>
 
+<br>
+            <div id="controls">
+                <a id="btnLEFT" onclick="document.dispatchEvent(new KeyboardEvent('keydown', { keyCode: '37' }));document.dispatchEvent(new KeyboardEvent('keyup', { keyCode: '87' }));document.dispatchEvent(new KeyboardEvent('keyup', { keyCode: '83' }));document.dispatchEvent(new KeyboardEvent('keyup', { keyCode: '39' }))"></a>
+                <a id="btnUP" onclick="document.dispatchEvent(new KeyboardEvent('keydown', { keyCode: '87' }));document.dispatchEvent(new KeyboardEvent('keyup', { keyCode: '37' }));document.dispatchEvent(new KeyboardEvent('keyup', { keyCode: '83' }));document.dispatchEvent(new KeyboardEvent('keyup', { keyCode: '39' }))"></a>
+                <a id="btnDOWN" onclick="document.dispatchEvent(new KeyboardEvent('keydown', { keyCode: '83' }));document.dispatchEvent(new KeyboardEvent('keyup', { keyCode: '87' }));document.dispatchEvent(new KeyboardEvent('keyup', { keyCode: '37' }));document.dispatchEvent(new KeyboardEvent('keyup', { keyCode: '39' }))"></a>
+                <a id="btnRIGHT" onclick="document.dispatchEvent(new KeyboardEvent('keydown', { keyCode: '39' }));document.dispatchEvent(new KeyboardEvent('keyup', { keyCode: '87' }));document.dispatchEvent(new KeyboardEvent('keyup', { keyCode: '37' }));document.dispatchEvent(new KeyboardEvent('keyup', { keyCode: '83' }))"></a>
+				
+                <div class="clear"></div>
+            </div>
+			
+<script>
+
+
+
+
+</script>			
 </body>
 </html>
